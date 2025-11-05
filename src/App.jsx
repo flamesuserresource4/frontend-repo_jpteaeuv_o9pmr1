@@ -1,28 +1,29 @@
-import { useState } from 'react'
+import React from 'react';
+import BrandHeader from './components/BrandHeader';
+import LoginCard from './components/LoginCard';
+import AppsGrid from './components/AppsGrid';
+import BackgroundFlow from './components/BackgroundFlow';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-[#EBEBEB] antialiased">
+      <div className="mx-auto max-w-7xl px-4 py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left: Brand + Login */}
+          <div>
+            <BrandHeader />
+            <LoginCard />
+          </div>
+
+          {/* Right: Apps hub preview */}
+          <div className="relative rounded-2xl border border-[#3A606E]/20 bg-white/60 backdrop-blur-sm p-6 lg:p-8 shadow-sm overflow-hidden">
+            <BackgroundFlow />
+            <AppsGrid />
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
